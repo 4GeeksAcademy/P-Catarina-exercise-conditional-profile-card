@@ -29,18 +29,59 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  //Name
+  let nameActive = "Lucy";
+  if (variables.name !== null) nameActive = variables.name;
+
+  //Surname
+  let lastNameActive = "Ringo";
+  if (variables.lastName !== null) lastNameActive = variables.lastName;
+
+  //Social Media Position
+  let socialMediaPositionActive = "position-left";
+  if (variables.socialMediaPosition != "position-left")
+    socialMediaPositionActive = "position-right";
+
+  // twitter
+  let twitterLink = "4geeksacademy";
+  if (variables.twitter !== null) twitterLink = variables.twitter;
+
+  // github
+  let githubLink = "4geeksacademy";
+  if (variables.github !== null) githubLink = variables.github;
+
+  // linkedIn
+  let linkedInLink = "school/4geeksacademy";
+  if (variables.linkedin !== null) linkedInLink = "in/" + variables.linkedin;
+
+  // instagram
+  let instagramLink = "4geeksacademy";
+  if (variables.instagram !== null) instagramLink = variables.instagram;
+
+  //Role
+  let rollActive = "Awesome Human";
+  if (variables.role !== null) rollActive = variables.role;
+
+  //City
+  let cityActive = "Somewhere";
+  if (variables.city !== null) cityActive = variables.city;
+
+  //Country
+  let countryActive = "Beyond the Sea";
+  if (variables.country !== null) countryActive = variables.country;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${nameActive} ${lastNameActive}</h1>
+          <h2>${rollActive}</h2>
+          <h3>${cityActive}, ${countryActive}</h3>
+          <ul class="${socialMediaPositionActive}">
+            <li><a href="https://twitter.com/${twitterLink}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${githubLink}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedInLink}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagramLink}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
